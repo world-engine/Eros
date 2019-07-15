@@ -134,6 +134,41 @@
           }
         }
       }
+    },
+    "gaea": {
+      "root": "projects/gaea",
+      "sourceRoot": "projects/gaea/src",
+      "projectType": "library",
+      "prefix": "we",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/gaea/tsconfig.lib.json",
+            "project": "projects/gaea/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/gaea/src/test.ts",
+            "tsConfig": "projects/gaea/tsconfig.spec.json",
+            "karmaConfig": "projects/gaea/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/gaea/tsconfig.lib.json",
+              "projects/gaea/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "Eros"
